@@ -24,7 +24,10 @@ function index() {
       setProfilePicture(result.data.data[0].image);
       setProfileName(result.data.data[0].name);
     } catch (error) {
+<<<<<<< HEAD
       // eslint-disable-next-line no-console
+=======
+>>>>>>> 04549a6732fd8d4e140100d827383e0d075f2e73
       console.log(error);
       navigate("/*");
     }
