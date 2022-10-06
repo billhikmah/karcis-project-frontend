@@ -1,0 +1,105 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200");
+* {
+  margin: 0;
+  position: relative;
+}
+.payment_body {
+  background-color: #f4f7ff;
+}
+
+/* Main */
+.payment_main {
+  background-color: #ffffff;
+  position: relative;
+  z-index: 2;
+  border-radius: 30px;
+  padding: 10vh;
+  margin: 10vh 25vw !important;
+  display: flex;
+  flex-direction: column;
+  row-gap: 25px;
+  justify-content: center;
+  align-items: center;
+}
+.payment_main__title {
+  font-family: "Poppins", sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 24px;
+  display: flex;
+  text-align: center;
+  letter-spacing: 1px;
+  color: #373a42;
+  margin-bottom: 30px;
+}
+.payment_main__payment {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.payment_main__payment-detail {
+  font-family: "Poppins", sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 21px;
+  letter-spacing: 0.5px;
+  color: #373a42;
+}
+.payment_main__payment-value {
+  font-family: "Poppins", sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 21px;
+  text-align: right;
+  letter-spacing: 0.5px;
+  color: #3366ff;
+}
+.payment_main__button {
+  font-family: "Poppins", sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 24px;
+  text-align: center;
+  letter-spacing: 1px;
+  color: #ffffff;
+
+  background: #3366ff;
+  box-shadow: 0px 8px 10px rgba(35, 149, 255, 0.3);
+  border-radius: 15px;
+  width: 300px;
+  height: 45px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+.payment_main__button:hover {
+  background: #2158fd;
+}
+.payment_main__button:active {
+  background: #0530b1;
+}
+
+/* Media Queries */
+@media only screen and (max-width: 600px) {
+  .payment_main__button {
+    margin-bottom: 30px !important;
+  }
+}
+@media only screen and (max-width: 1024px) {
+  .payment_main {
+    padding: 2vh;
+    margin: 3vh 10vw !important;
+    row-gap: 25px;
+  }
+  .payment_main__button {
+    margin-bottom: 30px;
+  }
+}
