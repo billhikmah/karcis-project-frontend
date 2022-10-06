@@ -25,6 +25,8 @@ function Home() {
       setEvents(result.data.data);
       // setPagination(result.data.pagination);
     } catch (error) {
+      // eslint-disable-next-line no-console
+      console.log(error);
       navigate("/*");
     }
   };
