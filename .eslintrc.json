@@ -17,5 +17,14 @@
     "sourceType": "module"
   },
   "plugins": ["react"],
-  "rules": { "react/react-in-jsx-scope": "off", "no-console": "warn" }
+  "rules": {
+    "react/react-in-jsx-scope": "off",
+    "no-console": "warn",
+    "prettier/prettier": [
+      "error",
+      {
+        "endOfLine": "auto"
+      }
+    ]
+  }
 }
