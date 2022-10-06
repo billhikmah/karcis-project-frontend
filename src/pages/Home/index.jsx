@@ -25,6 +25,7 @@ function Home() {
       setEvents(result.data.data);
       // setPagination(result.data.pagination);
     } catch (error) {
+      console.log(error);
       navigate("/*");
     }
   };

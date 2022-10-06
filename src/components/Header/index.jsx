@@ -24,6 +24,7 @@ function index() {
       setProfilePicture(result.data.data[0].image);
       setProfileName(result.data.data[0].name);
     } catch (error) {
+      console.log(error);
       navigate("/*");
     }
   };
