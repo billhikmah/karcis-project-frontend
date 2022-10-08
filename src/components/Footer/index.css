@@ -1,17 +1,15 @@
 /* Footer */
 
 .footer__title {
-  display: flex;
-  flex-direction: row;
-  color: rgba(51, 102, 255, 1);
   font-family: "Poppins", sans-serif;
   font-style: normal;
   font-weight: 600;
-  font-size: 24px;
-  line-height: 36px;
+  font-size: 16px;
+  line-height: 24px;
   display: flex;
   align-items: center;
   letter-spacing: 1px;
+  color: #373a42;
   cursor: pointer;
 }
 .footer__title-detail {
