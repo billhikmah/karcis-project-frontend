@@ -7,7 +7,7 @@ function index() {
     navigate(`/${path}`);
   };
   return (
-    <footer className="col container mx-auto my-5">
+    <footer className="col container mx-auto py-5">
       <div className="row col-sm-12">
         <div className="col-sm-12 col-md-6 col-lg-6 mb-5">
           <div className="col">
