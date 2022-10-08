@@ -6,6 +6,7 @@ import Home from "./pages/Home";
 import Detail from "./pages/Detail";
 import Booking from "./pages/Booking";
 import Payment from "./pages/Payment";
+import Profile from "./pages/Profile";
 import NotFound from "./pages/NotFound";
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
         <Route path="/payment" element={<Payment />} />
 
         {/* // User */}
+        <Route path="/profile" element={<Profile />} />
 
         {/* Not Found */}
         <Route path="/*" element={<NotFound />} />
