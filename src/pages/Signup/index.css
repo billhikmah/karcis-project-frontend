@@ -113,19 +113,46 @@
   letter-spacing: 1px;
   color: #c1c5d0;
 }
+.signup_right-side__input-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  background: #ffffff;
+  border: 1px solid #c1c5d0;
+  border-radius: 15px;
+  margin-bottom: 10px;
+}
+.signup_right-side__password {
+  width: 100%;
+  height: 50px;
+  background: #ffffff;
+  border: none;
+  border-radius: 15px;
+  padding-left: 15px;
+  padding-right: 15px;
+  box-sizing: border-box;
+}
+.signup_right-side__password::placeholder {
+  font-family: "Poppins", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 21px;
+  letter-spacing: 1px;
+  color: #c1c5d0;
+}
 .signup_right-side__eye {
   font-size: 20px;
   color: #3366ff;
-  position: absolute;
-  left: 85%;
-  top: 30%;
+  height: 50px;
+  margin: 5px;
 }
 .signup_right-side__eye-2 {
   font-size: 20px;
   color: #3366ff;
-  position: absolute;
-  left: 85%;
-  top: 30%;
+  height: 50px;
+  margin: 5px;
 }
 .signup_right-side__input-checkbox {
   font-family: "Poppins", sans-serif;

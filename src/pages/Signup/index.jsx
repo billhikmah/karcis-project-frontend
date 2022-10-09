@@ -116,11 +116,11 @@ function SignUp() {
               name="email"
               onChange={formHandler}
             />
-            <div>
+            <div className="signup_right-side__input-container">
               <input
                 type={showPassword ? "text" : "password"}
                 placeholder="Password"
-                className="signup_right-side__input"
+                className="signup_right-side__password"
                 name="password"
                 onChange={formHandler}
               />
@@ -136,11 +136,11 @@ function SignUp() {
                 />
               )}
             </div>
-            <div>
+            <div className="signup_right-side__input-container">
               <input
                 type={showConfirmPassword ? "text" : "password"}
                 placeholder="Confirm Password"
-                className="signup_right-side__input"
+                className="signup_right-side__password"
                 name="password"
                 onChange={confirmPasswordHandler}
               />

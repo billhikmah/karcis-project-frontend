@@ -74,24 +74,26 @@ function SignIn() {
               name="email"
               onChange={formHandler}
             />
-            <input
-              type={showPassword ? "text" : "password"}
-              placeholder="Password"
-              className="signin_right-side__input"
-              name="password"
-              onChange={formHandler}
-            />
-            {showPassword ? (
-              <Eye
-                onClick={showPasswordHandler}
-                className="signin_right-side__eye"
+            <div className="signin_right-side__input-container">
+              <input
+                type={showPassword ? "text" : "password"}
+                placeholder="Password"
+                className="signin_right-side__password"
+                name="password"
+                onChange={formHandler}
               />
-            ) : (
-              <EyeSlash
-                onClick={showPasswordHandler}
-                className="signin_right-side__eye"
-              />
-            )}
+              {showPassword ? (
+                <Eye
+                  onClick={showPasswordHandler}
+                  className="signin_right-side__eye"
+                />
+              ) : (
+                <EyeSlash
+                  onClick={showPasswordHandler}
+                  className="signin_right-side__eye"
+                />
+              )}
+            </div>
             <div
               className="signin_right-side__forgot"
               onClick={() => {
