@@ -109,7 +109,12 @@ function index() {
               </div>
             </ul>
           ) : (
-            <ul className="nav navbar-nav ms-auto mb-2 mb-lg-0 navbar__profile">
+            <ul
+              className="nav navbar-nav ms-auto mb-2 mb-lg-0 navbar__profile"
+              onClick={() => {
+                navigateHandler("profile");
+              }}
+            >
               <img
                 src={
                   profilePicture
