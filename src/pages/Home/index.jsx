@@ -1,9 +1,11 @@
 import "./index.css";
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
+import Partner from "./Partner";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "../../utils/axios";
+import { ArrowRight, ArrowLeft } from "react-bootstrap-icons";
 
 function Home() {
   const [events, setEvents] = useState();
@@ -69,19 +71,7 @@ function Home() {
             />
           </label>
           <div className="home_main__search-button">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="30"
-              height="30"
-              fill="currentColor"
-              className="bi bi-arrow-right"
-              viewBox="0 0 16 16"
-            >
-              <path
-                fillRule="evenodd"
-                d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"
-              />
-            </svg>
+            <ArrowRight />
           </div>
         </div>
       </main>
@@ -157,83 +147,13 @@ function Home() {
           ) : (
             <>not found</>
           )}
-          {/* <div className="home_event__card-options">
-            <div className="home_event__card-image-container">
-              <img
-                src={require("../../assets/Images/picture-4.png")}
-                alt="movie poster"
-                className="home_event__card-image"
-              />
-            </div>
-            <div className="home_event__card-date">Thu, 16 Nov, 7:00 PM</div>
-            <div className="home_event__card-title">See it in Gold Class</div>
-            <img
-              src={require("../../assets/Images/picture-2.png")}
-              className="home_event__card-viewers"
-            />
-          </div>
-          <div className="home_event__card-options">
-            <div className="home_event__card-image-container">
-              <img
-                src={require("../../assets/Images/picture-3.png")}
-                alt="movie poster"
-                className="home_event__card-image"
-              />
-            </div>
-            <div className="home_event__card-date">Wed, 15 Nov, 4:00 PM</div>
-            <div className="home_event__card-title">
-              Sights & Sounds Exhibition
-            </div>
-            <img
-              src={require("../../assets/Images/picture-2.png")}
-              className="home_event__card-viewers"
-            />
-          </div>
-          <div className="home_event__card-options">
-            <div className="home_event__card-image-container">
-              <img
-                src={require("../../assets/Images/picture-4.png")}
-                alt="movie poster"
-                className="home_event__card-image"
-              />
-            </div>
-            <div className="home_event__card-date">Thu, 16 Nov, 7:00 PM</div>
-            <div className="home_event__card-title">See it in Gold Class</div>
-            <img
-              src={require("../../assets/Images/picture-2.png")}
-              className="home_event__card-viewers"
-            />
-          </div> */}
         </div>
         <div className="home_event__pagination">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="30"
-            height="30"
-            fill="currentColor"
-            className="bi bi-arrow-left home_event__pagination-box"
-            viewBox="0 0 16 16"
-          >
-            <path
-              fillRule="evenodd"
-              d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"
-            />
-          </svg>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="30"
-            height="30"
-            fill="currentColor"
-            className="bi bi-arrow-right home_event__pagination-box"
-            viewBox="0 0 16 16"
-          >
-            <path
-              fillRule="evenodd"
-              d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"
-            />
-          </svg>
+          <ArrowLeft className="home_event__pagination-box" />
+          <ArrowRight className=" home_event__pagination-box" />
         </div>
       </section>
+      <Partner />
       <Footer />
     </div>
   );
