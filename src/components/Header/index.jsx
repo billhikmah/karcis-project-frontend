@@ -23,10 +23,8 @@ function index() {
       const result = await axios.get("/api/user/details");
       setProfilePicture(result.data.data[0].image);
       setProfileName(result.data.data[0].name);
-    } catch (error) {
-      // eslint-disable-next-line no-console
-      console.log(error);
-      navigate("/*");
+    } catch (_) {
+      _;
     }
   };
 
