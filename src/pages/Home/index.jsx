@@ -140,20 +140,60 @@ function Home() {
               >
                 Bandung
               </option>
+              <option
+                value="4b6ce6c6-1205-4333-9798-c5ebffa370bc"
+                className="home_main__search-location-option"
+              >
+                Bali
+              </option>
+              <option
+                value="0fc4a2fb-266d-4ac6-b8d7-060e2bb2ee7c"
+                className="home_main__search-location-option"
+              >
+                Aceh
+              </option>
+              <option
+                value="55dc78af-34b1-4887-8632-901516a700b7"
+                className="home_main__search-location-option"
+              >
+                Solo
+              </option>
+              <option
+                value="2a27e1dc-8fbe-4184-a666-cf0bd7bd8243"
+                className="home_main__search-location-option"
+              >
+                Yogyakarta
+              </option>
+              <option
+                value="66e897a4-c784-497c-8b1f-bf90098695f1"
+                className="home_main__search-location-option"
+              >
+                Semarang
+              </option>
+              <option
+                value="cb8dfda5-8698-47ef-bd25-01632ea70dc7"
+                className="home_main__search-location-option"
+              >
+                Bandar Lampung
+              </option>
+              <option
+                value="31efcdb3-878c-42a6-aafd-5bbeab149cf0"
+                className="home_main__search-location-option"
+              >
+                Surabaya
+              </option>
+              <option
+                value="aa677212-f41b-4929-af85-5944457ffb89"
+                className="home_main__search-location-option"
+              >
+                Medan
+              </option>
             </select>
           </div>
-          {/* <label className="home_main__search-item">
-            
-            <input
-              type="text"
-              className="home_main__input"
-              placeholder="Where?"
-            />
-          </label> */}
           <div
             className="home_main__search-button"
             onClick={() => {
-              navigateHandler(`search/keyword=${keyword}&location=${location}`);
+              navigateHandler(`search?keyword=${keyword}&location=${location}`);
             }}
           >
             <ArrowRight />
