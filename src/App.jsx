@@ -7,19 +7,23 @@ import Detail from "./pages/Detail";
 import Booking from "./pages/Booking";
 import Payment from "./pages/Payment";
 import Profile from "./pages/Profile";
+import Search from "./pages/Search";
 import NotFound from "./pages/NotFound";
 
 function App() {
   return (
     <BrowserRouter>
       <Routes>
-        {/* Auth */}
+        {/* Event */}
         <Route path="/" element={<Home />} />
+        <Route path="/detail/:id" element={<Detail />} />
+        <Route path="/search" element={<Search />} />
+
+        {/* Auth */}
         <Route path="/signup" element={<Signup />} />
         <Route path="/signin" element={<Signin />} />
 
-        {/* Event and Transactions */}
-        <Route path="/detail/:id" element={<Detail />} />
+        {/*Transactions */}
         <Route path="/booking" element={<Booking />} />
         <Route path="/payment" element={<Payment />} />
 
