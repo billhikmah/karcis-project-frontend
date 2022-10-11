@@ -20,7 +20,7 @@
 .detail_main__left-side {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   row-gap: 20px;
 }
@@ -166,6 +166,10 @@
   letter-spacing: 0.5px;
   color: #3366ff;
   margin-bottom: 20px;
+  cursor: pointer;
+}
+.detail_main__read-more:hover {
+  color: black;
 }
 .detail_main__maps {
   border-radius: 20px;
