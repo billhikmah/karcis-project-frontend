@@ -262,7 +262,7 @@ function Home() {
                     />
                   </div>
                   <div className="home_event__card-date">
-                    Wed, 15 Nov, 4:00 PM
+                    {moment(e.date_time_show).format("ddd, DD MMM h:mm A")}
                   </div>
                   <div className="home_event__card-title">{e.name}</div>
                   <img

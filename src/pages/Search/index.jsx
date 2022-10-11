@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { ArrowRight, ArrowLeft } from "react-bootstrap-icons";
 import axios from "../../utils/axios";
+import moment from "moment";
 
 function index() {
   const [events, setEvents] = useState([]);
@@ -251,7 +252,7 @@ function index() {
                       />
                     </div>
                     <div className="search_right-side__card-date">
-                      Wed, 15 Nov, 4:00 PM
+                      {moment(e.date_time_show).format("ddd, DD MMM h:mm A")}
                     </div>
                     <div className="search_right-side__card-title">
                       {e.name}
