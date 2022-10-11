@@ -5,11 +5,14 @@ import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import axios from "../../utils/axios";
 import { Heart, HeartFill, GeoAlt, Clock } from "react-bootstrap-icons";
+import moment from "moment";
 
 function index() {
   const [event, setEvent] = useState();
   const [addToWishlist, setAddToWishlist] = useState(true);
   const [wishlistId, setWishlistId] = useState("");
+  const [halfDetail, setHalfDetail] = useState("");
+  const [readMore, setReadMore] = useState(true);
   const { id } = useParams();
   const navigate = useNavigate();
   const navigateHandler = (path) => {
@@ -26,8 +29,9 @@ function index() {
     try {
       const result = await axios.get(`/api/event/${id}`);
       setEvent(result.data.data[0]);
-    } catch (error) {
-      navigate("/");
+      setHalfDetail(result.data.data[0].detail.slice(0, 50));
+    } catch (_) {
+      _;
     }
   };
   const getWishlistById = async () => {
@@ -123,7 +127,11 @@ function index() {
             </div>
             <div className="col detail_main__icon-detail">
               <Clock className="bi bi-clock detail_main__icon" />
-              Wed, 15 Nov, 4:00 PM
+              {event ? (
+                moment(event.date_time_show).format("ddd, DD MMM h:mm A")
+              ) : (
+                <div> &nbsp;</div>
+              )}
             </div>
           </div>
           <div className="col detail_main__attendees">Attendees</div>
@@ -135,9 +143,24 @@ function index() {
           </div>
           <div className="col detail_main__event-subtitle">Event Detail</div>
           <div className="col detail_main__event-desc">
-            {event ? event.detail : <div> &nbsp;</div>}
+            {event ? (
+              readMore ? (
+                `${halfDetail} ...`
+              ) : (
+                event.detail
+              )
+            ) : (
+              <div> &nbsp;</div>
+            )}
           </div>
-          <div className="col detail_main__read-more">Read More</div>
+          <div
+            className="col detail_main__read-more"
+            onClick={() => {
+              setReadMore(!readMore);
+            }}
+          >
+            {readMore ? "Read More" : "Read Less"}
+          </div>
           <div className="col detail_main__event-subtitle">Location</div>
           <div className="col">
             <img
