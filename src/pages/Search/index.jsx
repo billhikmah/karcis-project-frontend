@@ -100,7 +100,7 @@ function index() {
               name="location"
               className="search_left-side__dropdown-choices"
               onChange={locationHandler}
-              placeholder="hash"
+              value={location}
             >
               <option value="" className="search_left-side__dropdown-option">
                 All
