@@ -7,6 +7,7 @@ import { useNavigate } from "react-router-dom";
 import axios from "../../utils/axios";
 import { ArrowRight, ArrowLeft } from "react-bootstrap-icons";
 import moment from "moment";
+import EventCard from "../../components/EventCard";
 
 function Home() {
   const [keyword, setKeyword] = useState("");
@@ -19,7 +20,6 @@ function Home() {
 
   useEffect(() => {
     window.scrollTo(0, 0);
-    getEvents();
   }, []);
   useEffect(() => {
     generateDate();
@@ -239,43 +239,7 @@ function Home() {
             );
           })}
         </div>
-        <div className="home_event__card">
-          {events.length !== 0 ? (
-            events.map((e) => {
-              return (
-                <div
-                  className="home_event__card-options"
-                  key={e.id}
-                  onClick={() => {
-                    navigateHandler(`detail/${e.id}`);
-                  }}
-                >
-                  <div className="home_event__card-image-container">
-                    <img
-                      src={
-                        e.image
-                          ? `https://res.cloudinary.com/starbillscloud/image/upload/v1663094115/${e.image} `
-                          : require("../../assets/Images/picture-7.jpg")
-                      }
-                      alt="movie poster"
-                      className="home_event__card-image"
-                    />
-                  </div>
-                  <div className="home_event__card-date">
-                    {moment(e.date_time_show).format("ddd, DD MMM h:mm A")}
-                  </div>
-                  <div className="home_event__card-title">{e.name}</div>
-                  <img
-                    src={require("../../assets/Images/picture-2.png")}
-                    className="home_event__card-viewers"
-                  />
-                </div>
-              );
-            })
-          ) : (
-            <div className="home_event__card-not-found">Data not found.</div>
-          )}
-        </div>
+        <EventCard item={events} />
         <div className="home_event__pagination">
           <ArrowLeft
             className={
