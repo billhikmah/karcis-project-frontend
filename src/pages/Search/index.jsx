@@ -2,10 +2,9 @@ import "./index.css";
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
 import { ArrowRight, ArrowLeft } from "react-bootstrap-icons";
 import axios from "../../utils/axios";
-import moment from "moment";
+import EventCard from "../../components/EventCard";
 
 function index() {
   const [events, setEvents] = useState([]);
@@ -13,7 +12,6 @@ function index() {
   const [totalPage, setTotalPage] = useState(1);
   const [sort, setSort] = useState("name");
   const [order, setOrder] = useState(true);
-  const navigate = useNavigate();
   let params = new URL(document.location).searchParams;
   const [keyword, setKeyword] = useState(params.get("keyword"));
   const [location, setLocation] = useState(params.get("location"));
@@ -59,9 +57,6 @@ function index() {
   };
   const orderHandler = (e) => {
     setOrder(e.target.value);
-  };
-  const navigateHandler = (path) => {
-    navigate(`/${path}`);
   };
   const previousPageHandler = () => {
     if (page !== 1) {
@@ -229,47 +224,7 @@ function index() {
         </div>
         <div className="search_right-side col-sm-6 col-md-8 col-lg-9">
           <div className="search_right-side__title">Search Result:</div>
-          <div className="search_right-side__card">
-            {events.length !== 0 ? (
-              events.map((e) => {
-                return (
-                  <div
-                    className="search_right-side__card-options"
-                    key={e.id}
-                    onClick={() => {
-                      navigateHandler(`detail/${e.id}`);
-                    }}
-                  >
-                    <div className="search_right-side__card-image-container">
-                      <img
-                        src={
-                          e.image
-                            ? `https://res.cloudinary.com/starbillscloud/image/upload/v1663094115/${e.image} `
-                            : require("../../assets/Images/picture-7.jpg")
-                        }
-                        alt="movie poster"
-                        className="search_right-side__card-image"
-                      />
-                    </div>
-                    <div className="search_right-side__card-date">
-                      {moment(e.date_time_show).format("ddd, DD MMM h:mm A")}
-                    </div>
-                    <div className="search_right-side__card-title">
-                      {e.name}
-                    </div>
-                    <img
-                      src={require("../../assets/Images/picture-2.png")}
-                      className="search_right-side__card-viewers"
-                    />
-                  </div>
-                );
-              })
-            ) : (
-              <div className="search_right-side__card-not-found">
-                Data not found.
-              </div>
-            )}
-          </div>
+          <EventCard item={events} />
           <div className="search_right-side__pagination">
             <ArrowLeft
               className={
