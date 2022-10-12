@@ -243,6 +243,197 @@
   width: 30px;
 }
 
+/* Location */
+.location {
+  background: #3366ff;
+  border-radius: 50px;
+  margin: 5vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  row-gap: 30px;
+  padding: 3vw;
+}
+.location__bar {
+  font-family: "Poppins", sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 18px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  letter-spacing: 3px;
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.25);
+  border-radius: 30px;
+  margin: auto;
+  /* width: 150px; */
+  padding: 0 10px;
+}
+.location__container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  column-gap: 20px;
+  row-gap: 20px;
+}
+.location__title {
+  font-family: "Poppins", sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 36px;
+  line-height: 177.78%;
+  display: flex;
+  align-items: center;
+  letter-spacing: 1px;
+  color: #ffffff;
+  width: 250px;
+}
+.location__card {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  text-align: center;
+  letter-spacing: 1px;
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  row-gap: 15px;
+  width: 250px;
+  cursor: pointer;
+  border: 2px solid #3366ff;
+}
+.location__card:active {
+  color: black;
+}
+.location__image {
+  border: 2px solid #3366ff;
+  border-radius: 15px;
+  width: 230px;
+  height: 140px;
+  object-fit: cover;
+}
+.location__image:hover,
+.location__image:active {
+  border: 2px solid white;
+}
+.location__button {
+  font-family: "Poppins", sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 21px;
+  text-align: center;
+  letter-spacing: 1px;
+  color: #3366ff;
+  background: #ffffff;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 250px;
+  margin: auto;
+  padding: 10px;
+  cursor: pointer;
+}
+.location__button:hover {
+  color: black;
+}
+.location__button:active {
+  background-color: #c7c6c6;
+}
+.location__search-head {
+  display: flex;
+  flex-direction: row;
+  column-gap: 20px;
+  row-gap: 20px;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.location__search-location {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  column-gap: 10px;
+}
+.location__search-location-choices:focus {
+  outline: 0;
+}
+.location__search-location-choices {
+  height: 30px;
+  width: 220px;
+  border: none;
+  font-family: "Poppins", sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 18px;
+  letter-spacing: 1px;
+  text-transform: capitalize;
+  color: rgba(0, 0, 0);
+  border-radius: 10px;
+}
+.location__search-location-option {
+  font-family: "Poppins", sans-serif;
+  font-size: 15px;
+  text-transform: capitalize;
+  color: rgba(0, 0, 0);
+}
+.location__pagination {
+  display: flex;
+  flex-direction: row;
+  column-gap: 20px;
+}
+.location__pagination-box {
+  background: #ffffff;
+  color: #3366ff;
+  box-shadow: 0px 2px 15px rgba(26, 60, 68, 0.08);
+  border-radius: 10px;
+  padding: 5px;
+  height: 30px;
+  width: 30px;
+  cursor: pointer;
+}
+.location__pagination-box:hover {
+  background: #c4c4c4;
+}
+.location__pagination-box:active {
+  background: #646464;
+}
+.location__pagination-box-off {
+  color: #3366ff;
+  background: #252649;
+  box-shadow: 0px 2px 15px rgba(26, 60, 68, 0.08);
+  border-radius: 10px;
+  padding: 5px;
+  height: 30px;
+  width: 30px;
+}
+.location__pagination-text {
+  font-family: "Poppins", sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 20px;
+  color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30px;
+}
+
 /* Partner */
 .partner {
   display: flex;
