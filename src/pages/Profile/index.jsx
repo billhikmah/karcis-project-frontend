@@ -1,13 +1,17 @@
 import "./index.css";
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
+import Profile from "./Profile";
+import ChangePassword from "./ChangePassword";
+import { useState } from "react";
 
 function index() {
+  const [tab, setTab] = useState("profile");
   return (
     <div className="profile_body">
       <Header />
       <main className="profile_main row">
-        <div className="profile_left-side d-none d-sm-block col-sm-6 col-md-4 col-lg-3">
+        <div className="profile_left-side d-none d-sm-flex col-sm-6 col-md-4 col-lg-3">
           <div className="profile_left-side__main">
             <div>
               <img
@@ -30,7 +34,12 @@ function index() {
             <div>Profile</div>
           </div>
           <div className="profile_left-side__tab-container">
-            <div className="profile_left-side__tab">
+            <div
+              className="profile_left-side__tab"
+              onClick={() => {
+                setTab("profile");
+              }}
+            >
               <img
                 src={require("../../assets/Vectors/Vector-2.png")}
                 alt="logo"
@@ -38,7 +47,12 @@ function index() {
               />
               <div>Edit Profile</div>
             </div>
-            <div className="profile_left-side__tab">
+            <div
+              className="profile_left-side__tab"
+              onClick={() => {
+                setTab("changePassword");
+              }}
+            >
               <img
                 src={require("../../assets/Vectors/Vector-3.png")}
                 alt="logo"
@@ -80,18 +94,8 @@ function index() {
             <div>Logout</div>
           </div>
         </div>
-        <div className="profile_right-side col-sm-6 col-md-8 col-lg-9">
-          <div className="profile_right-side__title">Profile</div>
-          <div className="profile_right-side__main">
-            <label
-              htmlFor="name"
-              className="profile_right-side__input-container"
-            >
-              Name
-              <input id="name" type="text" />
-            </label>
-          </div>
-        </div>
+        {tab === "profile" ? <Profile /> : <></>}
+        {tab === "changePassword" ? <ChangePassword /> : <></>}
       </main>
       <Footer />
     </div>
