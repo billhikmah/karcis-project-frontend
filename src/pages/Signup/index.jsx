@@ -3,7 +3,8 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "../../utils/axios";
 import Footer from "../../components/Footer";
-import { Modal } from "react-bootstrap";
+// import { Modal } from "react-bootstrap";
+import Modal from "../../components/Modal";
 import { Eye, EyeSlash } from "react-bootstrap-icons";
 
 function SignUp() {
@@ -18,8 +19,7 @@ function SignUp() {
   const [agreement, setAgreement] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
-  const [showModal, setShowModal] = useState(false);
-  // const [showPassword, setShowPassword] = useState(false);
+  const [showModal, setShowModal] = useState(true);
 
   const navigate = useNavigate();
   const navigateHandler = (path) => {
@@ -177,30 +177,16 @@ function SignUp() {
         </section>
       </main>
       <Footer />
-      <Modal show={showModal} size="s" centered className="modal">
-        <Modal.Title className="modal-title">Great!</Modal.Title>
-        <Modal.Body className="modal-body">
-          <p>{successMessage}</p>
-        </Modal.Body>
-        <div className="modal-footer signup_modal__footer">
-          <button
-            className="signup_modal__button-active"
-            onClick={() => {
-              navigateHandler("");
-            }}
-          >
-            Start Exploring
-          </button>
-          <button
-            className="signup_modal__button-pasive"
-            onClick={() => {
-              navigateHandler("signin");
-            }}
-          >
-            Sign in
-          </button>
-        </div>
-      </Modal>
+      <Modal
+        navigateHandler={navigateHandler}
+        showModal={showModal}
+        title="Great!"
+        successMessage={successMessage}
+        blueButton="Start Exploring"
+        bluePath=""
+        whiteButton="Sign in"
+        whitePath="signin"
+      />
     </div>
   );
 }
