@@ -1,0 +1,66 @@
+/* Modal */
+.modal-content {
+  text-align: center;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 30px;
+  color: #4f5665;
+  border-radius: 30px !important;
+  padding-top: 30px;
+}
+.modal__footer {
+  font-family: "Poppins", sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 25px;
+  color: #6a4029;
+  display: table-cell;
+  vertical-align: middle;
+  justify-content: center !important;
+}
+.modal__button-active {
+  font-family: "Poppins", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 25px;
+  color: #ffffff;
+  background: #3366ff;
+  display: table-cell;
+  vertical-align: middle;
+  border-radius: 10px;
+  border: none;
+  padding: 10px;
+}
+.modal__button-active:active {
+  background: #2247b6;
+  cursor: pointer;
+}
+.modal__button-active:hover {
+  background: #2751cf;
+  cursor: pointer;
+}
+.modal__button-pasive {
+  font-family: "Poppins", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 25px;
+  color: #000000;
+  background: #d8d6d6;
+  display: table-cell;
+  vertical-align: middle;
+  border-radius: 10px;
+  border: none;
+  padding: 10px;
+}
+.modal__button-pasive:hover {
+  color: #ffffff;
+  background: #9e9b9b;
+}
+.modal__button-pasive:active {
+  color: #ffffff;
+  background: #464343;
+}
