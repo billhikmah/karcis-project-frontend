@@ -2,6 +2,7 @@ import "./index.css";
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
 import Partner from "./Partner";
+import Location from "./Location";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "../../utils/axios";
@@ -262,6 +263,7 @@ function Home() {
           />
         </div>
       </section>
+      <Location />
       <Partner />
       <Footer />
     </div>
