@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import "./index.css";
 import moment from "moment";
+import { EmojiFrown } from "react-bootstrap-icons";
 
 function EventCard(props) {
   const events = props.item;
@@ -44,7 +45,12 @@ function EventCard(props) {
             );
           })
         ) : (
-          <div className="event-card__card-not-found">Data not found.</div>
+          <div className="event-card__card-not-found">
+            <EmojiFrown />
+            <div className="event-card__card-not-found-text">
+              Sorry, event not found.
+            </div>
+          </div>
         )}
       </div>
     </div>
