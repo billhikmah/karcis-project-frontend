@@ -110,12 +110,17 @@
   font-family: "Poppins", sans-serif;
   font-style: normal;
   font-weight: 600;
-  font-size: 20px;
-  line-height: 24px;
+  font-size: 12px;
+  line-height: 18px;
   display: flex;
   align-items: center;
-  letter-spacing: 1px;
-  color: #373a42;
+  letter-spacing: 3px;
+
+  color: #ff3d71;
+  background: rgba(255, 61, 113, 0.25);
+  border-radius: 30px;
+  padding: 0 10px;
+  margin: auto;
 }
 .search_right-side__pagination {
   display: flex;

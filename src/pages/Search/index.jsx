@@ -223,7 +223,10 @@ function index() {
           </div>
         </div>
         <div className="search_right-side col-sm-6 col-md-8 col-lg-9">
-          <div className="search_right-side__title">Search Result:</div>
+          <div className="search_right-side__title">
+            <span className="material-symbols-outlined"> horizontal_rule </span>
+            Search Result
+          </div>
           <EventCard item={events} />
           <div className="search_right-side__pagination">
             <ArrowLeft
