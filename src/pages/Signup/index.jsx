@@ -3,7 +3,6 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "../../utils/axios";
 import Footer from "../../components/Footer";
-// import { Modal } from "react-bootstrap";
 import Modal from "../../components/Modal";
 import { Eye, EyeSlash } from "react-bootstrap-icons";
 
