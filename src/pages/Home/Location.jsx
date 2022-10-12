@@ -11,8 +11,10 @@ function Location() {
   const [showLocation, setShowLocation] = useState("navigation");
 
   useEffect(() => {
-    setPage(1);
-    getEventsByLocation();
+    if (showLocation !== "navigation") {
+      setPage(1);
+      getEventsByLocation();
+    }
   }, [showLocation]);
   useEffect(() => {
     getEventsByLocation();
@@ -200,7 +202,7 @@ function Location() {
                 {" "}
                 horizontal_rule{" "}
               </span>
-              Location:
+              Location
             </div>
             <div
               action="/action_page.php"
