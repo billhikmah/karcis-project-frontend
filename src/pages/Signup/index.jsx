@@ -18,7 +18,7 @@ function SignUp() {
   const [agreement, setAgreement] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
-  const [showModal, setShowModal] = useState(true);
+  const [showModal, setShowModal] = useState(false);
 
   const navigate = useNavigate();
   const navigateHandler = (path) => {
