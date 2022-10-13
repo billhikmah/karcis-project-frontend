@@ -6,7 +6,7 @@ function index(props) {
     <Modal show={props.showModal} size="s" centered className="modal">
       <Modal.Title className="modal-title">{props.title}</Modal.Title>
       <Modal.Body className="modal-body">
-        <p>{props.successMessage}</p>
+        <div>{props.message}</div>
       </Modal.Body>
       <div className="modal-footer modal__footer">
         <button
