@@ -26,7 +26,7 @@
   flex-direction: row;
   justify-content: left;
   align-items: center;
-  column-gap: 50px;
+  column-gap: 10px;
 }
 .profile_left-side__picture {
   height: 40px;
@@ -298,6 +298,7 @@ input[type="file"] {
   text-align: left;
 }
 
+/* Change Password */
 .change {
   display: flex;
   flex-direction: column;
@@ -354,6 +355,435 @@ input[type="file"] {
   align-items: center;
 }
 
+/* My Booking */
+.myBooking__message-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+.myBooking__message {
+  font-family: "Poppins", sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 36px;
+  letter-spacing: 1px;
+  color: #373a42;
+}
+.myBooking__submessage {
+  font-family: "Poppins", sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 221.43%;
+  display: flex;
+  text-align: center;
+  letter-spacing: 0.5px;
+  color: #b3b8b8;
+}
+.myBooking__container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin: 30px 0px !important;
+}
+.myBooking__item {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  border-bottom: 1px solid rgba(193, 197, 208, 0.25);
+  column-gap: 20px;
+  padding: 10px 0px;
+}
+.myBooking__date-container {
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+  border-radius: 15px;
+  padding: 10px;
+}
+.myBooking__item-date {
+  font-family: "Poppins", sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 21px;
+  text-align: center;
+  letter-spacing: 0.00039375px;
+  color: #ff8900;
+}
+.myBooking__item-day {
+  font-family: "Poppins", sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 18px;
+  text-align: center;
+  letter-spacing: 0.0003375px;
+  color: #c1c5d0;
+}
+.myBooking__event-container {
+  display: flex;
+  flex-direction: column;
+}
+.myBooking__name {
+  font-family: "Poppins", sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 36px;
+  display: flex;
+  align-items: center;
+  letter-spacing: 2px;
+  color: #373a42;
+  margin-bottom: 10px;
+}
+.myBooking__location {
+  font-family: "Poppins", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 27px;
+  display: flex;
+  align-items: center;
+  letter-spacing: 0.5px;
+  color: rgba(55, 58, 66, 0.75);
+}
+.myBooking__date {
+  font-family: "Poppins", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 27px;
+  display: flex;
+  align-items: center;
+  letter-spacing: 0.5px;
+  color: rgba(55, 58, 66, 0.75);
+}
+.myBooking__detail {
+  font-family: "Poppins", sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 20px;
+  letter-spacing: 0.5px;
+  color: #3366ff;
+  cursor: pointer;
+}
+.myBooking__detail:active {
+  color: #000000;
+}
+
+/* Modal */
+.myBooking__modal-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  font-family: "Poppins", sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 27px;
+  display: flex;
+  letter-spacing: 0.5px;
+  color: rgba(0, 0, 0, 0.75);
+}
+.myBooking__modal-message {
+  display: flex;
+  flex-direction: row;
+}
+.myBooking__modal-key {
+  width: 120px;
+  text-align: left;
+}
+.myBooking__modal-section {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: auto;
+}
+
+/* My Wishlist */
+
+/* My Booking */
+.myWishlist__message-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+.myWishlist__message {
+  font-family: "Poppins", sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 36px;
+  letter-spacing: 1px;
+  color: #373a42;
+}
+.myWishlist__submessage {
+  font-family: "Poppins", sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 221.43%;
+  display: flex;
+  text-align: center;
+  letter-spacing: 0.5px;
+  color: #b3b8b8;
+}
+.myWishlist__container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin: 30px 0px !important;
+}
+.myWishlist__item {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  border-bottom: 1px solid rgba(193, 197, 208, 0.25);
+  column-gap: 20px;
+  padding: 10px 0px;
+}
+.myWishlist__date-container {
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+  border-radius: 15px;
+  padding: 10px;
+}
+.myWishlist__item-date {
+  font-family: "Poppins", sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 21px;
+  text-align: center;
+  letter-spacing: 0.00039375px;
+  color: #ff8900;
+}
+.myWishlist__item-day {
+  font-family: "Poppins", sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 18px;
+  text-align: center;
+  letter-spacing: 0.0003375px;
+  color: #c1c5d0;
+}
+.myWishlist__event-container {
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+}
+.myWishlist__name {
+  font-family: "Poppins", sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 36px;
+  display: flex;
+  align-items: center;
+  letter-spacing: 2px;
+  color: #373a42;
+  margin-bottom: 10px;
+}
+.myWishlist__location {
+  font-family: "Poppins", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 27px;
+  display: flex;
+  align-items: center;
+  letter-spacing: 0.5px;
+  color: rgba(55, 58, 66, 0.75);
+}
+.myWishlist__date {
+  font-family: "Poppins", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 27px;
+  display: flex;
+  align-items: center;
+  letter-spacing: 0.5px;
+  color: rgba(55, 58, 66, 0.75);
+}
+.myWishlist__heart-container {
+  color: red;
+}
+
+/* Manage */
+.manage_right-side__header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.manage_right-side__title {
+  font-family: "Poppins", sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 24px;
+  display: flex;
+  align-items: center;
+  letter-spacing: 1px;
+  color: #373a42;
+}
+.manage_right-side__create {
+  font-family: "Poppins", sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 18px;
+  letter-spacing: 1px;
+  color: #3366ff;
+
+  background: #eaf1ff;
+  border-radius: 15px;
+  padding: 12px 25px;
+  cursor: pointer;
+}
+.manage_right-side__create:hover {
+  color: #01289b;
+}
+.manage_right-side__create:active {
+  background: #c1d3f8;
+}
+.manage__message-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+.manage__message {
+  font-family: "Poppins", sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 36px;
+  letter-spacing: 1px;
+  color: #373a42;
+}
+.manage__submessage {
+  font-family: "Poppins", sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 221.43%;
+  display: flex;
+  text-align: center;
+  letter-spacing: 0.5px;
+  color: #b3b8b8;
+}
+.manage__container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin: 30px 0px !important;
+}
+.manage__item {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  border-bottom: 1px solid rgba(193, 197, 208, 0.25);
+  column-gap: 20px;
+  padding: 10px 0px;
+}
+.manage__date-container {
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+  border-radius: 15px;
+  padding: 10px;
+}
+.manage__item-date {
+  font-family: "Poppins", sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 21px;
+  text-align: center;
+  letter-spacing: 0.00039375px;
+  color: #ff8900;
+}
+.manage__item-day {
+  font-family: "Poppins", sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 18px;
+  text-align: center;
+  letter-spacing: 0.0003375px;
+  color: #c1c5d0;
+}
+.manage__event-container {
+  display: flex;
+  flex-direction: column;
+}
+.manage__name {
+  font-family: "Poppins", sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 36px;
+  display: flex;
+  align-items: center;
+  letter-spacing: 2px;
+  color: #373a42;
+  margin-bottom: 10px;
+}
+.manage__location {
+  font-family: "Poppins", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 27px;
+  display: flex;
+  align-items: center;
+  letter-spacing: 0.5px;
+  color: rgba(55, 58, 66, 0.75);
+}
+.manage__date {
+  font-family: "Poppins", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 27px;
+  display: flex;
+  align-items: center;
+  letter-spacing: 0.5px;
+  color: rgba(55, 58, 66, 0.75);
+}
+.manage__button-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  column-gap: 10px;
+  flex-wrap: wrap;
+}
+.manage__button {
+  font-family: "Poppins", sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 20px;
+  letter-spacing: 0.5px;
+  color: #3366ff;
+  cursor: pointer;
+}
+.manage__button:active {
+  color: #000000;
+}
 /* Media Queries */
 @media only screen and (max-width: 1024px) {
   .profile_main {
