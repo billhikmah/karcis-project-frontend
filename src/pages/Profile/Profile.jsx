@@ -95,8 +95,9 @@ export default function Profile() {
               id="profession"
               name="profession"
               className="profile_right-side__select"
+              defaultValue=""
             >
-              <option value="" selected className="profile_right-side__option">
+              <option value="" className="profile_right-side__option">
                 --Select--
               </option>
               <option
@@ -133,8 +134,9 @@ export default function Profile() {
               id="profession"
               name="profession"
               className="profile_right-side__select"
+              defaultValue=""
             >
-              <option value="" selected className="profile_right-side__option">
+              <option value="" className="profile_right-side__option">
                 --Select--
               </option>
               <option
