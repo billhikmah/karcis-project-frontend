@@ -180,7 +180,7 @@ function SignUp() {
         navigateHandler={navigateHandler}
         showModal={showModal}
         title="Great!"
-        successMessage={successMessage}
+        message={successMessage}
         blueButton="Start Exploring"
         bluePath=""
         whiteButton="Sign in"
