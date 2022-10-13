@@ -2,11 +2,15 @@ import "./index.css";
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
 import Profile from "./Profile";
+import MyBooking from "./MyBooking";
+import MyWishlist from "./MyWishlist";
 import ChangePassword from "./ChangePassword";
+import Manage from "./Manage";
 import { useState } from "react";
 
 function index() {
   const [tab, setTab] = useState("profile");
+  const role = "admin";
   return (
     <div className="profile_body">
       <Header />
@@ -25,7 +29,12 @@ function index() {
               <div className="profile_left-side__desc">Entrepreneur, ID</div>
             </div>
           </div>
-          <div className="profile_left-side__tab">
+          <div
+            className="profile_left-side__tab"
+            onClick={() => {
+              setTab("profile");
+            }}
+          >
             <img
               src={require("../../assets/Vectors/Vector-1.png")}
               alt="logo"
@@ -61,22 +70,50 @@ function index() {
               <div>Change Password</div>
             </div>
           </div>
-          <div className="profile_left-side__tab">
-            <img
-              src={require("../../assets/Vectors/Vector-4.png")}
-              alt="logo"
-              className="profile_left-side__tab-image"
-            />
-            <div>My Booking</div>
-          </div>
-          <div className="profile_left-side__tab">
-            <img
-              src={require("../../assets/Vectors/Vector-5.png")}
-              alt="logo"
-              className="profile_left-side__tab-image"
-            />
-            <div>My Wishlist</div>
-          </div>
+          {role === "admin" ? (
+            <div
+              className="profile_left-side__tab"
+              onClick={() => {
+                setTab("manage");
+              }}
+            >
+              <img
+                src={require("../../assets/Vectors/Vector-10.png")}
+                alt="logo"
+                className="profile_left-side__tab-image"
+              />
+              <div>Manage Event</div>
+            </div>
+          ) : (
+            <>
+              <div
+                className="profile_left-side__tab"
+                onClick={() => {
+                  setTab("myBooking");
+                }}
+              >
+                <img
+                  src={require("../../assets/Vectors/Vector-4.png")}
+                  alt="logo"
+                  className="profile_left-side__tab-image"
+                />
+                <div>My Booking</div>
+              </div>
+              <div
+                className="profile_left-side__tab"
+                onClick={() => {
+                  setTab("myWishlist");
+                }}
+              >
+                <img
+                  src={require("../../assets/Vectors/Vector-5.png")}
+                  alt="logo"
+                  className="profile_left-side__tab-image"
+                />
+                <div>My Wishlist</div>
+              </div>
+            </>
+          )}
           <div className="profile_left-side__tab">
             <img
               src={require("../../assets/Vectors/Vector-6.png")}
@@ -96,6 +133,9 @@ function index() {
         </div>
         {tab === "profile" ? <Profile /> : <></>}
         {tab === "changePassword" ? <ChangePassword /> : <></>}
+        {tab === "myBooking" ? <MyBooking /> : <></>}
+        {tab === "myWishlist" ? <MyWishlist /> : <></>}
+        {tab === "manage" ? <Manage /> : <></>}
       </main>
       <Footer />
     </div>
