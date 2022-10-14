@@ -172,7 +172,7 @@ function index() {
           <div
             className="detail_main__button"
             onClick={() => {
-              navigateHandler("booking");
+              navigateHandler(`booking/${id}`);
             }}
           >
             Buy Tickets
