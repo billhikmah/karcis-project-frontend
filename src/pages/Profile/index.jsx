@@ -7,10 +7,20 @@ import MyWishlist from "./MyWishlist";
 import ChangePassword from "./ChangePassword";
 import Manage from "./Manage";
 import { useState } from "react";
+import Modal from "../../components/Modal";
 
 function index() {
   const [tab, setTab] = useState("profile");
-  const role = "admin";
+  const [showLogoutModal, setShowLogoutModal] = useState(false);
+  const logoutHandler = () => {
+    setShowLogoutModal(true);
+  };
+  const modalHandler = (data) => {
+    if (data === "close") {
+      setShowLogoutModal(false);
+    }
+  };
+  const role = "user";
   return (
     <div className="profile_body">
       <Header />
@@ -142,7 +152,12 @@ function index() {
             />
             <div>Settings</div>
           </div>
-          <div className="profile_left-side__logout">
+          <div
+            className="profile_left-side__logout"
+            onClick={() => {
+              logoutHandler();
+            }}
+          >
             <img
               src={require("../../assets/Vectors/Vector-7.png")}
               alt="logo"
@@ -158,6 +173,16 @@ function index() {
         {tab === "manage" ? <Manage /> : <></>}
       </main>
       <Footer />
+      <Modal
+        navigateHandler={modalHandler}
+        showModal={showLogoutModal}
+        title="Log Out"
+        message="Are you sure to log out?"
+        blueButton="Log Out"
+        bluePath="close"
+        whiteButton="Cancel"
+        whitePath="close"
+      />
     </div>
   );
 }
