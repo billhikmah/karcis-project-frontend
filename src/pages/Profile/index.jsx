@@ -44,7 +44,11 @@ function index() {
           </div>
           <div className="profile_left-side__tab-container">
             <div
-              className="profile_left-side__tab"
+              className={
+                tab !== "profile"
+                  ? "profile_left-side__tab"
+                  : "profile_left-side__tab-active"
+              }
               onClick={() => {
                 setTab("profile");
               }}
@@ -57,7 +61,11 @@ function index() {
               <div>Edit Profile</div>
             </div>
             <div
-              className="profile_left-side__tab"
+              className={
+                tab !== "changePassword"
+                  ? "profile_left-side__tab"
+                  : "profile_left-side__tab-active"
+              }
               onClick={() => {
                 setTab("changePassword");
               }}
@@ -72,7 +80,11 @@ function index() {
           </div>
           {role === "admin" ? (
             <div
-              className="profile_left-side__tab"
+              className={
+                tab !== "manage"
+                  ? "profile_left-side__tab"
+                  : "profile_left-side__tab-active"
+              }
               onClick={() => {
                 setTab("manage");
               }}
@@ -87,7 +99,11 @@ function index() {
           ) : (
             <>
               <div
-                className="profile_left-side__tab"
+                className={
+                  tab !== "myBooking"
+                    ? "profile_left-side__tab"
+                    : "profile_left-side__tab-active"
+                }
                 onClick={() => {
                   setTab("myBooking");
                 }}
@@ -100,7 +116,11 @@ function index() {
                 <div>My Booking</div>
               </div>
               <div
-                className="profile_left-side__tab"
+                className={
+                  tab !== "myWishlist"
+                    ? "profile_left-side__tab"
+                    : "profile_left-side__tab-active"
+                }
                 onClick={() => {
                   setTab("myWishlist");
                 }}

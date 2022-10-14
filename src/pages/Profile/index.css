@@ -91,6 +91,24 @@
   justify-content: center;
   align-items: flex-start;
 }
+.profile_left-side__tab-active {
+  font-family: "Poppins", sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 21px;
+  letter-spacing: 1px;
+  color: #3366ff;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  column-gap: 20px;
+  cursor: pointer;
+  height: auto;
+  width: auto;
+}
 .profile_left-side__logout {
   font-family: "Poppins", sans-serif;
   font-style: normal;
