@@ -250,6 +250,12 @@
   width: 29vw;
   height: 50px;
 }
+.profile_right-side__save:hover {
+  background: #1c51ee;
+}
+.profile_right-side__save:active {
+  background: #012ba8;
+}
 
 .profile_right-side__tab {
   display: flex;
@@ -371,6 +377,13 @@ input[type="file"] {
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
+}
+.change__button:hover {
+  background: #1c51ee;
+}
+.change__button:active {
+  background: #012ba8;
 }
 
 /* My Booking */
@@ -636,6 +649,7 @@ input[type="file"] {
 }
 .myWishlist__heart-container {
   color: red;
+  cursor: pointer;
 }
 
 /* Manage */
