@@ -24,7 +24,7 @@ function App() {
         <Route path="/signin" element={<Signin />} />
 
         {/*Transactions */}
-        <Route path="/booking" element={<Booking />} />
+        <Route path="/booking/:id" element={<Booking />} />
         <Route path="/payment" element={<Payment />} />
 
         {/* // User */}
