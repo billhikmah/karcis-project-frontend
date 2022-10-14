@@ -19,11 +19,17 @@
 }
 .booking_main__left-side {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
   row-gap: 20px;
   position: relative;
+  object-fit: cover;
+  height: 50vh;
+  width: auto;
+}
+.booking_main__rotate-seat {
+  transform: rotate(-45deg);
 }
 .booking_main__image {
   border-radius: 16px;
@@ -53,26 +59,10 @@
   letter-spacing: 1px;
   color: #373a42;
 }
-.booking_main__sort {
-  font-family: "Poppins", sans-serif;
-  font-style: normal;
-  font-weight: 600;
-  font-size: 12px;
-  line-height: 18px;
-  text-align: right;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  color: #fc1055;
-  cursor: pointer;
-}
-.booking_main__sort-logo {
-  color: #3366ff;
-  background: #ffffff;
-  box-shadow: 0px 2px 15px rgba(26, 60, 68, 0.08);
-  border-radius: 10px;
-  height: 30px;
-  width: 30px;
-  padding: 5px;
+.booking_main__ticket-scrolling {
+  height: 200px;
+  overflow: auto;
+  overflow-x: hidden;
 }
 .booking_main__section {
   display: flex;
@@ -81,9 +71,20 @@
   width: 100%;
   margin-bottom: 20px;
 }
+.booking_main__section-empty {
+  display: flex;
+  height: 200px;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
 .booking_main__section-image {
   width: 45px;
   height: 45px;
+}
+.booking_main__section-detail-container {
+  margin-bottom: 20px;
+  width: 90%;
 }
 .booking_main__section-detail {
   display: flex;
@@ -200,6 +201,13 @@
   letter-spacing: 0.5px;
   color: #3366ff;
 }
+.booking_main__button-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  column-gap: 30px;
+}
 .booking_main__button {
   font-family: "Poppins", sans-serif;
   font-style: normal;
@@ -213,7 +221,7 @@
   background: #3366ff;
   box-shadow: 0px 8px 10px rgba(35, 149, 255, 0.3);
   border-radius: 15px;
-  width: 300px;
+  width: 250px;
   height: 45px;
   display: flex;
   justify-content: center;
@@ -225,6 +233,32 @@
 }
 .booking_main__button:active {
   background: #0530b1;
+}
+.booking_main__button-clear {
+  font-family: "Poppins", sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 24px;
+  text-align: center;
+  letter-spacing: 1px;
+  color: #000000;
+
+  background: #ffffff;
+  box-shadow: 0px 8px 10px rgba(35, 149, 255, 0.3);
+  border-radius: 15px;
+  width: 250px;
+  height: 45px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+.booking_main__button-clear:hover {
+  background: #cfcfcf;
+}
+.booking_main__button-clear:active {
+  background: #8f8f8f;
 }
 
 /* Media Queries */
@@ -240,9 +274,6 @@
     width: 90vw;
     object-fit: cover;
   }
-  .booking_main__button {
-    margin-bottom: 30px;
-  }
   .booking_main__section-detail {
     width: 50vw;
   }
@@ -253,16 +284,22 @@
     padding: 10px;
     margin: 0 !important;
   }
+  .booking_main__right-side {
+    margin-bottom: 20px;
+  }
   .booking_main__image {
     border-radius: 16px;
     height: 50vw;
     width: 50vw;
     object-fit: cover;
   }
-  .booking_main__button {
-    margin-bottom: 30px;
-  }
   .booking_main__section-detail {
     width: 50vw;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .booking_main__rotate-seat {
+    transform: none;
   }
 }
