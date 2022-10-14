@@ -43,14 +43,17 @@ export default function Profile() {
       updated_at: "2022-10-09T13:46:25.007898+00:00",
     },
   ]);
-  const [showDetail, setShowDetail] = useState(false);
+  const [showModal, setShowModal] = useState(false);
   const navigate = useNavigate();
   useEffect(() => {});
   const navigateHandler = (data) => {
     if (data === "close") {
-      return setShowDetail(false);
+      return setShowModal(false);
     }
     navigate(`/detail/${data}`);
+  };
+  const wishlistHandler = () => {
+    setShowModal(true);
   };
   return (
     <div className="profile_right-side col-sm-6 col-md-8 col-lg-9">
@@ -87,7 +90,12 @@ export default function Profile() {
                     )}
                   </div>
                 </div>
-                <div className="myWishlist__heart-container">
+                <div
+                  className="myWishlist__heart-container"
+                  onClick={() => {
+                    wishlistHandler();
+                  }}
+                >
                   <HeartFill />
                 </div>
               </div>
@@ -95,14 +103,16 @@ export default function Profile() {
           })}
         </div>
       )}
+
       <Modal
-        showModal={showDetail}
-        title={wishlist[0].event_id.name}
         navigateHandler={navigateHandler}
+        showModal={showModal}
+        title="Remove from Wishlist"
+        message="Are you sure to remove this event from your wishlist?"
+        blueButton="Yes"
+        bluePath="close"
+        whiteButton="Cancel"
         whitePath="close"
-        whiteButton="close"
-        bluePath={wishlist[0].event_id.id}
-        blueButton="View Event"
       />
     </div>
   );
