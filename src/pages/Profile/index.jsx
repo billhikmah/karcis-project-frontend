@@ -8,19 +8,32 @@ import ChangePassword from "./ChangePassword";
 import Manage from "./Manage";
 import { useState } from "react";
 import Modal from "../../components/Modal";
+import axios from "../../utils/axios";
+import { useNavigate } from "react-router-dom";
 
 function index() {
   const [tab, setTab] = useState("profile");
   const [showLogoutModal, setShowLogoutModal] = useState(false);
+  const navigate = useNavigate();
+
   const logoutHandler = () => {
     setShowLogoutModal(true);
   };
-  const modalHandler = (data) => {
+  const modalHandler = async (data) => {
     if (data === "close") {
-      setShowLogoutModal(false);
+      return setShowLogoutModal(false);
+    }
+    try {
+      await axios.delete(`/api/auth`);
+      localStorage.clear();
+      navigate("/");
+    } catch (error) {
+      localStorage.clear();
+      navigate("/");
     }
   };
-  const role = "user";
+  const role = "admin";
+
   return (
     <div className="profile_body">
       <Header />
@@ -179,7 +192,7 @@ function index() {
         title="Log Out"
         message="Are you sure to log out?"
         blueButton="Log Out"
-        bluePath="close"
+        bluePath="logout"
         whiteButton="Cancel"
         whitePath="close"
       />
