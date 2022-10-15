@@ -21,6 +21,11 @@ function Location() {
   }, [page]);
   const getEventsByLocation = async () => {
     try {
+      if (showLocation === "navigation") {
+        setEvents([]);
+        setTotalPage(1);
+        return;
+      }
       const result = await axios.get(
         `/api/event/?location=${showLocation}&sort=name&order=true&page=${page}&limit=5`
       );
