@@ -1,22 +1,49 @@
 import axios from "axios";
-// eslint-disable-next-line no-undef
-// const { REACT_APP_BASE_URL } = process.env;
 
 const axiosApiIntances = axios.create({
+  // baseURL: "https://karcis-project-server.vercel.app",
   baseURL: "http://localhost:8080",
 });
 
-// Add a request interceptor
 axiosApiIntances.interceptors.request.use(
   function (config) {
-    // Do something before request is sent
     config.headers = {
       Authorization: `Bearer ${localStorage.getItem("token")}`,
+      refreshtoken: localStorage.getItem("refreshToken"),
     };
     return config;
   },
   function (error) {
-    // Do something with request error
+    return Promise.reject(error);
+  }
+);
+
+axiosApiIntances.interceptors.response.use(
+  function (response) {
+    return response;
+  },
+  function (error) {
+    if (error.response.status === 403) {
+      if (
+        error.response.data.message ===
+        "Please sign in again, your token is expired"
+      ) {
+        axiosApiIntances
+          .post("/api/auth/refresh")
+          .then((res) => {
+            localStorage.setItem("token", res.data.data.token);
+            localStorage.setItem("refreshToken", res.data.data.refreshToken);
+            window.location.reload();
+          })
+          .catch(() => {
+            localStorage.clear();
+            window.location.href = "/signin";
+          });
+      } else {
+        localStorage.clear();
+        window.location.href = "/signin";
+      }
+    }
     return Promise.reject(error);
   }
 );
