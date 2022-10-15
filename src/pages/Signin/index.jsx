@@ -12,6 +12,7 @@ function SignIn() {
   });
   const [showPassword, setShowPassword] = useState(false);
   const [errorMessage, setErrorMessage] = useState(null);
+  const navigate = useNavigate();
 
   const formHandler = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -23,13 +24,13 @@ function SignIn() {
       }
       const result = await axios.post("/api/auth/login", form);
       localStorage.setItem("token", result.data.data.token);
+      localStorage.setItem("refreshToken", result.data.data.refreshToken);
       setErrorMessage(null);
       navigateHandler("");
     } catch (error) {
       setErrorMessage(error.response.data.message);
     }
   };
-  const navigate = useNavigate();
   const navigateHandler = (path) => {
     navigate(`/${path}`);
   };
