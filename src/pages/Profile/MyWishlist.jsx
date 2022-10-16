@@ -3,49 +3,18 @@ import moment from "moment";
 import Modal from "../../components/Modal";
 import { useNavigate } from "react-router-dom";
 import { HeartFill } from "react-bootstrap-icons";
+import { useDispatch, useSelector } from "react-redux";
+import { getWishlistAction } from "../../redux/action/wishlist";
 
 export default function Profile() {
-  const [wishlist] = useState([
-    {
-      id: "945aac3c-6d91-4fba-b077-bba3538bf71b",
-      event_id: {
-        id: "95809473-4a77-494e-8d0f-90cad268cfe7",
-        name: "JISPHORIA",
-        date_time_show: "2022-10-13T05:00:00+00:00",
-        location: {
-          id: "42fb3705-7edb-4b01-95c3-1486360a9348",
-          name: "Jakarta",
-        },
-      },
-      user_id: {
-        id: "368267ee-cd13-4ce1-823f-a1d19066acf5",
-        name: "bill hikmah",
-      },
-      created_at: "2022-10-09T13:46:25.007898+00:00",
-      updated_at: "2022-10-09T13:46:25.007898+00:00",
-    },
-    {
-      id: "945aac3c-6d91-4fba-b077-bba3538bf71a",
-      event_id: {
-        id: "95809473-4a77-494e-8d0f-90cad268cfe7",
-        name: "JISPHORIA",
-        date_time_show: "2022-10-13T05:00:00+00:00",
-        location: {
-          id: "42fb3705-7edb-4b01-95c3-1486360a9348",
-          name: "Jakarta",
-        },
-      },
-      user_id: {
-        id: "368267ee-cd13-4ce1-823f-a1d19066acf5",
-        name: "bill hikmah",
-      },
-      created_at: "2022-10-09T13:46:25.007898+00:00",
-      updated_at: "2022-10-09T13:46:25.007898+00:00",
-    },
-  ]);
+  const wishlist = useSelector((state) => state.wishlist.data);
   const [showModal, setShowModal] = useState(false);
   const navigate = useNavigate();
-  useEffect(() => {});
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getWishlistAction());
+  }, []);
   const navigateHandler = (data) => {
     if (data === "close") {
       return setShowModal(false);
