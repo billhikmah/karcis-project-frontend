@@ -7,14 +7,17 @@ import MyWishlist from "./MyWishlist";
 import ChangePassword from "./ChangePassword";
 import Manage from "./Manage";
 import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import Modal from "../../components/Modal";
-import axios from "../../utils/axios";
 import { useNavigate } from "react-router-dom";
+import { logoutAction } from "../../redux/action/user";
 
 function index() {
   const [tab, setTab] = useState("profile");
   const [showLogoutModal, setShowLogoutModal] = useState(false);
   const navigate = useNavigate();
+  const userData = useSelector((state) => state.user);
+  const dispatch = useDispatch();
 
   const logoutHandler = () => {
     setShowLogoutModal(true);
@@ -24,7 +27,7 @@ function index() {
       return setShowLogoutModal(false);
     }
     try {
-      await axios.delete(`/api/auth`);
+      dispatch(logoutAction());
       localStorage.clear();
       navigate("/");
     } catch (error) {
@@ -32,7 +35,6 @@ function index() {
       navigate("/");
     }
   };
-  const role = "admin";
 
   return (
     <div className="profile_body">
@@ -101,7 +103,7 @@ function index() {
               <div>Change Password</div>
             </div>
           </div>
-          {role === "admin" ? (
+          {userData.role === "admin" ? (
             <div
               className={
                 tab !== "manage"
