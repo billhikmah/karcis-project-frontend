@@ -1,11 +1,15 @@
 import "./index.css";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
 import Footer from "../../components/Footer";
-import axios from "../../utils/axios";
+// import axios from "../../utils/axios";
 import { Eye, EyeSlash } from "react-bootstrap-icons";
+import { signinAction } from "../../redux/action/user";
 
 function SignIn() {
+  const userData = useSelector((state) => state.user);
+  const dispatch = useDispatch();
   const [form, setForm] = useState({
     email: "",
     password: "",
@@ -22,13 +26,16 @@ function SignIn() {
       if (!form.email || !form.password) {
         return setErrorMessage("Please fill in all required fields.");
       }
-      const result = await axios.post("/api/auth/login", form);
-      localStorage.setItem("token", result.data.data.token);
-      localStorage.setItem("refreshToken", result.data.data.refreshToken);
-      setErrorMessage(null);
-      navigateHandler("");
+      await dispatch(signinAction(form));
+      if (!userData.isLoading) {
+        localStorage.setItem("token", userData.token);
+        localStorage.setItem("refreshToken", userData.refreshToken);
+        setErrorMessage(null);
+        navigateHandler("");
+      }
+      return;
     } catch (error) {
-      setErrorMessage(error.response.data.message);
+      setErrorMessage(userData.errorMessage);
     }
   };
   const navigateHandler = (path) => {
@@ -103,7 +110,7 @@ function SignIn() {
             >
               Forgot Password?
             </div>
-            {errorMessage ? (
+            {errorMessage && !userData.isLoading ? (
               <div className="signin_right-side__error-message">
                 {errorMessage}
               </div>
@@ -114,7 +121,18 @@ function SignIn() {
               className="signin_right-side__input-button"
               onClick={signInHandler}
             >
-              Sign In
+              {userData.isLoading ? (
+                <div className="text-center">
+                  <div
+                    className="spinner-border spinner-border-sm"
+                    role="status"
+                  >
+                    <span className="visually-hidden" />
+                  </div>
+                </div>
+              ) : (
+                <>Sign In</>
+              )}
             </div>
           </form>
           <section>
