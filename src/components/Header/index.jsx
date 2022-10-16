@@ -1,12 +1,15 @@
 import "./index.css";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import axios from "../../utils/axios";
+import { useDispatch, useSelector } from "react-redux";
+import { getUserAction } from "../../redux/action/user";
 
 function index() {
-  const [profilePicture, setProfilePicture] = useState();
-  const [profileName, setProfileName] = useState();
+  const [profilePicture, setProfilePicture] = useState("");
+  const [profileName, setProfileName] = useState("");
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const userData = useSelector((state) => state.user.userInfo);
   const navigateHandler = (path) => {
     navigate(`/${path}`);
   };
@@ -14,17 +17,14 @@ function index() {
 
   useEffect(() => {
     if (token) {
-      getProfile();
+      dispatch(getUserAction());
+      setNavbarData();
     }
   }, []);
-
-  const getProfile = async () => {
-    try {
-      const result = await axios.get("/api/user/details");
-      setProfilePicture(result.data.data[0].image);
-      setProfileName(result.data.data[0].name);
-    } catch (_) {
-      _;
+  const setNavbarData = () => {
+    if (userData[0]) {
+      setProfilePicture(userData[0].image);
+      setProfileName(userData[0].name);
     }
   };
 
