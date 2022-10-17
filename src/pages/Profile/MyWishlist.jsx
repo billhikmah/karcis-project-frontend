@@ -1,15 +1,15 @@
 import { useEffect, useState } from "react";
 import moment from "moment";
 import Modal from "../../components/Modal";
-import { useNavigate } from "react-router-dom";
 import { HeartFill } from "react-bootstrap-icons";
 import { useDispatch, useSelector } from "react-redux";
 import { getWishlistAction } from "../../redux/action/wishlist";
+import axios from "../../utils/axios";
 
 export default function Profile() {
   const wishlist = useSelector((state) => state.wishlist.data);
   const [showModal, setShowModal] = useState(false);
-  const navigate = useNavigate();
+  const [wishlistActive, setWishlistActive] = useState(0);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -19,10 +19,20 @@ export default function Profile() {
     if (data === "close") {
       return setShowModal(false);
     }
-    navigate(`/detail/${data}`);
+    deleteWishlist(data);
   };
-  const wishlistHandler = () => {
+  const wishlistHandler = (id) => {
+    setWishlistActive(id);
     setShowModal(true);
+  };
+  const deleteWishlist = async (id) => {
+    try {
+      await axios.delete(`/api/wishlist/${id}`);
+      dispatch(getWishlistAction());
+      setShowModal(false);
+    } catch (_) {
+      setShowModal(false);
+    }
   };
   return (
     <div className="profile_right-side col-sm-6 col-md-8 col-lg-9">
@@ -62,7 +72,7 @@ export default function Profile() {
                 <div
                   className="myWishlist__heart-container"
                   onClick={() => {
-                    wishlistHandler();
+                    wishlistHandler(e.id);
                   }}
                 >
                   <HeartFill />
@@ -79,7 +89,7 @@ export default function Profile() {
         title="Remove from Wishlist"
         message="Are you sure to remove this event from your wishlist?"
         blueButton="Yes"
-        bluePath="close"
+        bluePath={`${wishlistActive}`}
         whiteButton="Cancel"
         whitePath="close"
       />
