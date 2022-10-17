@@ -1,4 +1,40 @@
+import { useState } from "react";
+import Modal from "../../components/Modal";
+import { useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { updateUserAction } from "../../redux/action/user";
+
 export default function Profile() {
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const [form, setForm] = useState({});
+  const [message, setMessage] = useState("");
+  const [showModal, setShowModal] = useState(false);
+  const defaultData = useSelector((state) => state.user.userInfo[0]);
+
+  const formHandler = (e) => {
+    setForm({ ...form, [e.target.name]: e.target.value });
+  };
+  const updateHandler = async () => {
+    try {
+      await dispatch(updateUserAction(form));
+      setMessage("Your profile is successfully updated");
+      modalHandler(true);
+    } catch (error) {
+      setMessage(error.response.data.message);
+    }
+  };
+  const modalHandler = (status) => {
+    setShowModal(status);
+  };
+  const navigateHandler = (path) => {
+    if (path === "close") {
+      setShowModal(false);
+      return;
+    }
+    navigate(`/${path}`);
+  };
+
   return (
     <div className="profile_right-side col-sm-6 col-md-8 col-lg-9">
       <div className="profile_right-side__title">Profile</div>
@@ -10,9 +46,12 @@ export default function Profile() {
             </label>
             <input
               id="name"
+              name="name"
               type="text"
               className="profile_right-side__input"
               placeholder="Name"
+              defaultValue={defaultData.name}
+              onChange={formHandler}
             />
           </div>
           <div className="profile_right-side__input-container">
@@ -23,10 +62,13 @@ export default function Profile() {
               Username
             </label>
             <input
-              id="name"
+              id="username"
+              name="username"
               type="text"
               className="profile_right-side__input"
               placeholder="Username"
+              defaultValue={defaultData.username}
+              onChange={formHandler}
             />
           </div>
           <div className="profile_right-side__input-container">
@@ -35,9 +77,13 @@ export default function Profile() {
             </label>
             <input
               id="email"
+              name="email"
               type="text"
               className="profile_right-side__input"
               placeholder="Email"
+              defaultValue={defaultData.email}
+              disabled
+              onChange={formHandler}
             />
           </div>
           <div className="profile_right-side__input-container">
@@ -46,9 +92,12 @@ export default function Profile() {
             </label>
             <input
               id="phone"
+              name="phone"
               type="number"
               className="profile_right-side__input"
               placeholder="Phone Number"
+              defaultValue={`0${defaultData.phone}`}
+              onChange={formHandler}
             />
           </div>
           <div className="profile_right-side__input-container">
@@ -60,6 +109,14 @@ export default function Profile() {
                   name="gender"
                   type="radio"
                   placeholder="Profession"
+                  checked={
+                    defaultData.gender.id ===
+                    "75f7e98d-c7f1-4877-9902-f3b155f4e389"
+                      ? "checked"
+                      : null
+                  }
+                  value="75f7e98d-c7f1-4877-9902-f3b155f4e389"
+                  onChange={formHandler}
                 />
                 <label
                   htmlFor="male"
@@ -74,6 +131,14 @@ export default function Profile() {
                   name="gender"
                   type="radio"
                   placeholder="Profession"
+                  checked={
+                    defaultData.gender.id ===
+                    "c2ecc310-d009-4ea8-93f8-f903daf4bee7"
+                      ? "checked"
+                      : null
+                  }
+                  value="c2ecc310-d009-4ea8-93f8-f903daf4bee7"
+                  onChange={formHandler}
                 />
                 <label
                   htmlFor="female"
@@ -95,7 +160,10 @@ export default function Profile() {
               id="profession"
               name="profession"
               className="profile_right-side__select"
-              defaultValue=""
+              defaultValue={
+                defaultData.profession ? defaultData.profession.id : ""
+              }
+              onChange={formHandler}
             >
               <option value="" className="profile_right-side__option">
                 --Select--
@@ -131,10 +199,13 @@ export default function Profile() {
               Nationality
             </label>
             <select
-              id="profession"
-              name="profession"
+              id="nationality"
+              name="nationality"
               className="profile_right-side__select"
-              defaultValue=""
+              defaultValue={
+                defaultData.nationality ? defaultData.nationality.id : ""
+              }
+              onChange={formHandler}
             >
               <option value="" className="profile_right-side__option">
                 --Select--
@@ -158,13 +229,18 @@ export default function Profile() {
               Birthday Date
             </label>
             <input
-              id="name"
+              id="date_of_birth"
+              name="date_of_birth"
               type="date"
               className="profile_right-side__select"
               placeholder="Birthday Date"
+              defaultValue={defaultData.date_of_birth}
+              onChange={formHandler}
             />
           </div>
-          <div className="profile_right-side__save">Save</div>
+          <div className="profile_right-side__save" onClick={updateHandler}>
+            Save
+          </div>
         </div>
         <div className="profile_right-side__tab order-1 col-sm-12 order-sm-1 col-md-12 order-md-1 col-lg-4 order-lg-2">
           <label htmlFor="image">
@@ -191,6 +267,17 @@ export default function Profile() {
           </div>
         </div>
       </div>
+
+      <Modal
+        navigateHandler={navigateHandler}
+        showModal={showModal}
+        title="Update Profile"
+        message={message}
+        blueButton="Home"
+        bluePath=""
+        whiteButton="Close"
+        whitePath="close"
+      />
     </div>
   );
 }
