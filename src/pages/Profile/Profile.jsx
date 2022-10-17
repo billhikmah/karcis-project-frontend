@@ -11,6 +11,7 @@ export default function Profile() {
   const [message, setMessage] = useState("");
   const [showModal, setShowModal] = useState(false);
   const defaultData = useSelector((state) => state.user.userInfo[0]);
+  const userData = useSelector((state) => state.user);
 
   const formHandler = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -245,7 +246,11 @@ export default function Profile() {
         <div className="profile_right-side__tab order-1 col-sm-12 order-sm-1 col-md-12 order-md-1 col-lg-4 order-lg-2">
           <label htmlFor="image">
             <img
-              src={require("../../assets/Images/picture-3.png")}
+              src={
+                userData
+                  ? `https://res.cloudinary.com/starbillscloud/image/upload/v1663094115/${userData.userInfo[0].image}`
+                  : require("../../assets/Images/picture-6.jpg")
+              }
               alt="preview"
               className="profile_right-side__picture"
             />
