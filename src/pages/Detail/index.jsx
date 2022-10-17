@@ -15,13 +15,17 @@ function index() {
   const [readMore, setReadMore] = useState(true);
   const { id } = useParams();
   const navigate = useNavigate();
+  const token = localStorage.getItem("token");
+
   const navigateHandler = (path) => {
     navigate(`/${path}`);
   };
 
   useEffect(() => {
     getEventById();
-    getWishlistById();
+    if (token) {
+      getWishlistById();
+    }
     window.scrollTo(0, 0);
   }, []);
 
@@ -91,29 +95,33 @@ function index() {
               className="detail_main__image"
             />
           </div>
-          {!addToWishlist ? (
-            <div className="detail_main__add-wishlist">
-              <HeartFill
-                className="detail_main__add-wishlist-logo"
-                onClick={wishlistHandler}
-              />
-              <span
-                className="detail_main__add-wishlist-text"
-                onClick={wishlistHandler}
-              >
-                Remove from Wishlist
-              </span>
-            </div>
+          {token ? (
+            !addToWishlist ? (
+              <div className="detail_main__add-wishlist">
+                <HeartFill
+                  className="detail_main__add-wishlist-logo"
+                  onClick={wishlistHandler}
+                />
+                <span
+                  className="detail_main__add-wishlist-text"
+                  onClick={wishlistHandler}
+                >
+                  Remove from Wishlist
+                </span>
+              </div>
+            ) : (
+              <div className="detail_main__add-wishlist">
+                <Heart onClick={wishlistHandler} />
+                <span
+                  className="detail_main__add-wishlist-text"
+                  onClick={wishlistHandler}
+                >
+                  Add to Wishlist
+                </span>
+              </div>
+            )
           ) : (
-            <div className="detail_main__add-wishlist">
-              <Heart onClick={wishlistHandler} />
-              <span
-                className="detail_main__add-wishlist-text"
-                onClick={wishlistHandler}
-              >
-                Add to Wishlist
-              </span>
-            </div>
+            <></>
           )}
         </div>
         <div className="col col-12 col-lg-6 detail_main__right-side">
