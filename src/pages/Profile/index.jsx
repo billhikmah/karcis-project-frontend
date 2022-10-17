@@ -44,14 +44,22 @@ function index() {
           <div className="profile_left-side__main">
             <div>
               <img
-                src={require("../../assets/Images/picture-4.png")}
+                src={
+                  userData
+                    ? `https://res.cloudinary.com/starbillscloud/image/upload/v1663094115/${userData.userInfo[0].image}`
+                    : require("../../assets/Images/picture-6.jpg")
+                }
                 alt="profile"
                 className="profile_left-side__picture"
               />
             </div>
             <div>
-              <div className="profile_left-side__name">Jhon Tomson</div>
-              <div className="profile_left-side__desc">Entrepreneur, ID</div>
+              <div className="profile_left-side__name">
+                {userData ? userData.userInfo[0].name : ""}
+              </div>
+              <div className="profile_left-side__desc">
+                {userData ? `${userData.userInfo[0].profession.name},  ID` : ""}
+              </div>
             </div>
           </div>
           <div
