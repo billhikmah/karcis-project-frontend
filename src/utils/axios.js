@@ -2,7 +2,7 @@ import axios from "axios";
 
 const axiosApiIntances = axios.create({
 //   baseURL: "https://karcis-project-server.vercel.app",
-  baseURL: "https://karcis-project-server.vercel.app",
+  baseURL: "http://localhost:8080",
 });
 
 axiosApiIntances.interceptors.request.use(
