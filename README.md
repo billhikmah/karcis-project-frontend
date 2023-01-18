@@ -28,7 +28,7 @@ Karcis Project is a website for purchasing event tickets. This website is built 
 
 1. Clone the repository
    ```
-   https://github.com/billhikmah/CoffeeShop-Frontend-HTML-CSS
+   https://github.com/billhikmah/karcis-project-frontend
    ```
 2. Open the file using [VSCode](https://code.visualstudio.com/download)
 3. Run this command below to install dependencies
